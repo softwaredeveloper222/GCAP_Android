@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher_app_icon"
+        android:label= "@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GCAP">
+        <activity
+            android:name=".main.industryContacts.PartnerActivity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".core.item_brand" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name=".main.calculators.superheatSubcooling.SuperActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.calculators.RealeaseCalculator.ReleaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.calculators.pressureEnthalpy.PressureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.calculators.fahrenheit.FahrenheitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.calculators.PSIG.PsigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.calculators.PSIA.PsiaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.contactUs.ContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.industryContacts.IndustryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.magneticTool.MagneticActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.animations.AnimationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.chartsGraphs.ChartsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.chartsGraphs.ChartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.formulas.FormulaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.valvePositions.ValvesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.calculators.CalculatorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MyApp.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

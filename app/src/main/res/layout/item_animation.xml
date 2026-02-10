@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="170.0dip"
+    android:background="@drawable/animation_bg">
+
+    <androidx.cardview.widget.CardView
+        android:id="@id/cardView"
+        android:layout_width="fill_parent"
+        android:layout_height="90.0dip"
+        android:layout_marginStart="7.0dip"
+        android:layout_marginTop="7.0dip"
+        android:layout_marginEnd="7.0dip"
+        app:cardCornerRadius="10.0dip"
+        app:cardElevation="0.0dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@id/ivAnimation"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@id/imageView24"
+        android:layout_width="13.0dip"
+        android:layout_height="13.0dip"
+        android:layout_marginStart="8.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:srcCompat="@drawable/play_circle" />
+
+    <TextView
+        android:id="@id/tvAnimation"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6.0dip"
+        android:layout_marginEnd="6.0dip"
+        android:fontFamily="@font/poppins_semibold"
+        android:maxLines="1"
+        android:text="TextView"
+        android:textColor="#ff444444"
+        android:textSize="16.0sp"
+        app:autoSizeMaxTextSize="16.0sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageView24"
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

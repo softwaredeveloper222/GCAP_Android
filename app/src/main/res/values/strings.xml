@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">GCAP Cool Works</string>
+    <string name="formula" formatted="false">"• 1% = 10,000 PPM
+• Federal PEL for NH3 is 50 PPM
+• Federal STEL for NH3 is 35 PPM
+• Federal IDLH for NH3 is 300 PPM
+• Hydrostatic Expansion for NH3 is 100 PSI – 150 PSI per °F of heat exposure
+• Liquid NH3 swelling effect is 20% it’s original size under standard atmospheric temperatures.
+• Liquid NH3 expansion rate at standard atmospheric pressure is 768:1
+• H20 absorption rate of NH3 gas is 1,300:1
+• 2.5 gallons of water to dilute one pound of ammonia gas
+• PH of NH3 is about 11.6
+• Oils can absorb approximately ½% of ammonia gas by volume
+• 1mA is 1/1,000 of an amp
+• 1 HP = 2,545 BTU’s of Energy
+• Three-Phase kW = {(Amps x Volts x Power Factor x 1.73) / 1,000}
+• Single-Phase kw = {(Amps x Volts x Power Factor) / 1,000}
+• kW = 3,412 BTU’s of Energy per Hour = 28.6% of a Ton
+• 1 HP = 0.746 kilowatts = 746 watts
+• BHP Single-Phase = {(Volts x Amps x % Efficient x Power Factor) / 746}
+• BHP Three-Phase = {(Volts x Amps x % Efficient x Power Factor x 1.73) / 746}
+• 200 BTU’s / Min = 1 Ton of Refrigeration
+• 12,000 BTU’s / Hour = 1 Ton of Refrigeration
+• 288,000 BTU’s / 24 Hours = 1 Ton of Refrigeration
+• Volume of a cylinder is = (Length x Radius x Radius x π)
+• Volume of a Rectangle/Square = (Length x Width x Height)
+• Compression Ratio = (Discharge Pressure in PSIA / Suction Pressure in PSIA)
+• NH3 latent heat of boiling is approximately 561 BTU’s
+• H20 latent heat of boiling is approximately 970 BTU’s
+• H20 latent heat of freezing is approximately 144 BTU’s
+• C = {(F – 32) / 1.8}
+• F = {(C x 1.8) + 32}
+• Sensible Heat Equation: BTU’s = {Mass x Specific Heat x (T1 – T2)}
+• Latent Heat Equation: BTU’s = (Mass x Latent Heat of Freezing)
+• Specific Heat (Cp) of liquid H20 is 1.0
+• Specific Heat (Cp) of liquid NH3 is 1.12
+• Pressure = (Force / Area)
+• PSIA = {14.7 – (“Hg / 2.035)}
+• PSIA = (14.7 + PSIG)
+• PSIG = (PSIA – 14.7)
+• 1 BARa = 14.7 PSIA = 0 PSIG = 0”Hg
+• Flash / Tax Gas % for NH3 = {(TD x 1.12) / 561}"</string>
+</resources>

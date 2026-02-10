@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.calculators.superheatSubcooling.SuperActivity">
+    <ImageView
+        android:id="@id/imageView34"
+        android:layout_width="0.0dip"
+        android:layout_height="0.0dip"
+        android:alpha="0.1"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgroud_pipe" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/constraintLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="75.0dip"
+        android:background="#ff2d2f93"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@id/back"
+            android:layout_width="23.0dip"
+            android:layout_height="32.0dip"
+            android:layout_marginStart="10.0dip"
+            android:padding="7.0dip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
+
+        <TextView
+            android:id="@id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="Superheat-Subcooling"
+            android:textColor="@color/white"
+            android:textSize="16.0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@id/logo"
+        android:layout_width="100.0dip"
+        android:layout_height="100.0dip"
+        android:layout_marginTop="50.0dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <ScrollView
+        android:layout_width="0.0dip"
+        android:layout_height="0.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="20.0dip"
+                android:layout_marginTop="30.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_marginBottom="30.0dip"
+                app:cardBackgroundColor="#ff90cff2"
+                app:cardCornerRadius="10.0dip">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@id/textView1634"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18.0dip"
+                        android:layout_marginEnd="18.0dip"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Superheat-Subcooling"
+                        android:textColor="#ff3638a8"
+                        android:textSize="18.0sp"
+                        app:layout_constraintBottom_toTopOf="@id/cardView4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@id/cardView4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60.0dip"
+                        app:cardCornerRadius="10.0dip"
+                        app:cardElevation="0.0dip"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20.0dip"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@id/textView324"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Pressure (PSIG)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg1"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/etPsig"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView314"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Temperature (°F)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg1"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/etF"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.0"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@id/textView255"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:text="SAT Temperature (°F) (+ or -1 degree)"
+                                            android:textColor="#ff444444"
+                                            android:textSize="10.0sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tvSat"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:layout_weight="1.0"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginTop="15.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@id/textView204"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="0.0dip"
+                                        android:layout_weight="1.0"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:gravity="bottom"
+                                        android:text="Condition of Refrigerant"
+                                        android:textColor="#ff444444"
+                                        android:textSize="10.0sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvCondition"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.0"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@id/textView254"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:text="Degrees of Superheat/Subcooling (°F) (+ or -1 degree)"
+                                            android:textColor="#ff444444"
+                                            android:textSize="10.0sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tvDegree"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:layout_weight="1.0"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="45.0dip"
+                                android:layout_marginTop="27.0dip"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@id/clear"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:backgroundTint="#ff90cff2"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Clear"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip" />
+
+                                <Button
+                                    android:id="@id/go_home"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Go to Home"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip"
+                                    android:backgroundTint="#ff2d2f93"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView48"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:layout_marginBottom="20.0dip"
+                                android:fontFamily="@font/poppins_regular"
+                                android:gravity="center"
+                                android:text="The NH3 saturation chart is developed in 1 °F increments and then matched with the corresponding pressure. Therefore, the pressures do not increment by 1 PSIG. The calculator takes the pressure the user inputs and finds the closest pressure listed on the saturation chart to do the calculation."
+                                android:textColor="#ff444444"
+                                android:textSize="10.0sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

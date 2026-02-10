@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.calculators.RealeaseCalculator.ReleaseActivity">
+    <ImageView
+        android:id="@id/imageView33"
+        android:layout_width="0.0dip"
+        android:layout_height="0.0dip"
+        android:alpha="0.1"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgroud_pipe" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/constraintLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="75.0dip"
+        android:background="#ff2d2f93"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@id/back"
+            android:layout_width="23.0dip"
+            android:layout_height="32.0dip"
+            android:layout_marginStart="10.0dip"
+            android:padding="7.0dip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
+
+        <TextView
+            android:id="@id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Release Calculator"
+            android:textColor="@color/white"
+            android:textSize="16.0sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@id/logo"
+        android:layout_width="100.0dip"
+        android:layout_height="100.0dip"
+        android:layout_marginTop="50.0dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <ScrollView
+        android:layout_width="0.0dip"
+        android:layout_height="0.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="20.0dip"
+                android:layout_marginTop="30.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_marginBottom="30.0dip"
+                app:cardBackgroundColor="#ff90cff2"
+                app:cardCornerRadius="10.0dip">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@id/textView16"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18.0dip"
+                        android:layout_marginEnd="18.0dip"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Liquid Release - Round Opening"
+                        android:textColor="#ff3638a8"
+                        android:textSize="18.0sp"
+                        app:layout_constraintBottom_toTopOf="@id/cardView2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@id/cardView2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60.0dip"
+                        app:cardCornerRadius="10.0dip"
+                        app:cardElevation="0.0dip"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20.0dip"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@id/textView32"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Diameter of Round Hole (In Inches)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et11"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView31"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Gauge Pressure (psig)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et12"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView17"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Number of Minutes Released"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et13"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@id/textView20"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="0.0dip"
+                                        android:layout_weight="1.0"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:gravity="bottom"
+                                        android:text="Liquid Flow Rate (lb/min)"
+                                        android:textColor="#ff444444"
+                                        android:textSize="10.0sp" />
+
+                                    <TextView
+                                        android:id="@id/tv11"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.0"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@id/textView25"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:text="Total Liquid Released (lb)"
+                                            android:textColor="#ff444444"
+                                            android:textSize="10.0sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@id/tv12"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:layout_weight="1.0"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="45.0dip"
+                                android:layout_marginTop="27.0dip"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@id/clear1"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:backgroundTint="#ff90cff2"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Clear"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip" />
+
+                                <Button
+                                    android:id="@id/go_home1"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Go to Home"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip"
+                                    android:backgroundTint="#ff2d2f93"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="20.0dip"
+                android:layout_marginTop="30.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_marginBottom="30.0dip"
+                app:cardBackgroundColor="#ff90cff2"
+                app:cardCornerRadius="10.0dip">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@id/textView161"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18.0dip"
+                        android:layout_marginEnd="18.0dip"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Liquid Release - Irregular Opening"
+                        android:textColor="#ff3638a8"
+                        android:textSize="18.0sp"
+                        app:layout_constraintBottom_toTopOf="@id/cardView21"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@id/cardView21"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60.0dip"
+                        app:cardCornerRadius="10.0dip"
+                        app:cardElevation="0.0dip"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20.0dip"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@id/textView321"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Area of Leak (In Square Inches)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et21"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView311"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Gauge Pressure (psig)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et22"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView171"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Number of Minutes Released"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et23"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@id/textView201"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="0.0dip"
+                                        android:layout_weight="1.0"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:gravity="bottom"
+                                        android:text="Liquid Flow Rate (lb/min)"
+                                        android:textColor="#ff444444"
+                                        android:textSize="10.0sp" />
+
+                                    <TextView
+                                        android:id="@id/tv21"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.0"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@id/textView251"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:text="Total Liquid Released (lb)"
+                                            android:textColor="#ff444444"
+                                            android:textSize="10.0sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@id/tv22"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:layout_weight="1.0"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="45.0dip"
+                                android:layout_marginTop="27.0dip"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@id/clear2"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:backgroundTint="#ff90cff2"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Clear"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip" />
+
+                                <Button
+                                    android:id="@id/go_home2"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Go to Home"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip"
+                                    android:backgroundTint="#ff2d2f93"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="20.0dip"
+                android:layout_marginTop="30.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_marginBottom="30.0dip"
+                app:cardBackgroundColor="#ff90cff2"
+                app:cardCornerRadius="10.0dip">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@id/textView162"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18.0dip"
+                        android:layout_marginEnd="18.0dip"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Gas Release - Round Opening"
+                        android:textColor="#ff3638a8"
+                        android:textSize="18.0sp"
+                        app:layout_constraintBottom_toTopOf="@id/cardView22"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@id/cardView22"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60.0dip"
+                        app:cardCornerRadius="10.0dip"
+                        app:cardElevation="0.0dip"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20.0dip"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@id/textView322"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Diameter of Round Hole (In Inches)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et31"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView312"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Gauge Pressure (psig)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et32"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView172"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Number of Minutes Released"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et33"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@id/textView202"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="0.0dip"
+                                        android:layout_weight="1.0"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:gravity="bottom"
+                                        android:text="Gas Flow Rate (lb/min)"
+                                        android:textColor="#ff444444"
+                                        android:textSize="10.0sp" />
+
+                                    <TextView
+                                        android:id="@id/tv31"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.0"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@id/textView252"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:text="Total Vapor Released (lb)"
+                                            android:textColor="#ff444444"
+                                            android:textSize="10.0sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@id/tv32"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:layout_weight="1.0"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="45.0dip"
+                                android:layout_marginTop="27.0dip"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@id/clear3"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:backgroundTint="#ff90cff2"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Clear"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip" />
+
+                                <Button
+                                    android:id="@id/go_home3"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Go to Home"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip"
+                                    android:backgroundTint="#ff2d2f93"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="20.0dip"
+                android:layout_marginTop="30.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_marginBottom="30.0dip"
+                app:cardBackgroundColor="#ff90cff2"
+                app:cardCornerRadius="10.0dip">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@id/textView163"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18.0dip"
+                        android:layout_marginEnd="18.0dip"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Gas Release - Irregular Opening"
+                        android:textColor="#ff3638a8"
+                        android:textSize="18.0sp"
+                        app:layout_constraintBottom_toTopOf="@id/cardView3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@id/cardView3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60.0dip"
+                        app:cardCornerRadius="10.0dip"
+                        app:cardElevation="0.0dip"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20.0dip"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@id/textView323"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Area of Leak (In Square Inches)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et41"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView313"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Gauge Pressure (psig)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et42"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView173"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Number of Minutes Released"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et43"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@id/textView203"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="0.0dip"
+                                        android:layout_weight="1.0"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:gravity="bottom"
+                                        android:text="Gas Flow Rate (lb/min)"
+                                        android:textColor="#ff444444"
+                                        android:textSize="10.0sp" />
+
+                                    <TextView
+                                        android:id="@id/tv41"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.0"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@id/textView253"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:text="Total Vapor Released (lb)"
+                                            android:textColor="#ff444444"
+                                            android:textSize="10.0sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@id/tv42"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:layout_weight="1.0"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="45.0dip"
+                                android:layout_marginTop="27.0dip"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@id/clear4"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:backgroundTint="#ff90cff2"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Clear"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip" />
+
+                                <Button
+                                    android:id="@id/go_home4"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Go to Home"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip"
+                                    android:backgroundTint="#ff2d2f93"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="20.0dip"
+                android:layout_marginTop="30.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_marginBottom="30.0dip"
+                app:cardBackgroundColor="#ff90cff2"
+                app:cardCornerRadius="10.0dip">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@id/textView1634"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18.0dip"
+                        android:layout_marginEnd="18.0dip"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Room Level - PPM to lbs"
+                        android:textColor="#ff3638a8"
+                        android:textSize="18.0sp"
+                        app:layout_constraintBottom_toTopOf="@id/cardView4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@id/cardView4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60.0dip"
+                        app:cardCornerRadius="10.0dip"
+                        app:cardElevation="0.0dip"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20.0dip"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@id/textView324"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Length of room (in feet)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et51"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView314"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Height of room (in feet)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et52"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView174"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Width of room (in feet)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et53"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView33"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Width of room (in feet)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et54"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@id/textView34"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Width of room (in feet)"
+                                android:textColor="#ff444444"
+                                android:textSize="12.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="40.0dip"
+                                android:layout_marginTop="5.0dip"
+                                android:background="@drawable/edittext_bg3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@id/et55"
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberSigned|numberDecimal"
+                                    android:paddingStart="13.0dip"
+                                    android:paddingEnd="13.0dip"
+                                    android:text=""
+                                    android:textColor="#ff2e3094"
+                                    android:textSize="12.0sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15.0dip"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.0"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@id/textView255"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:text="Total room value in ft3"
+                                            android:textColor="#ff444444"
+                                            android:textSize="10.0sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@id/tv51"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:layout_weight="1.0"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginTop="15.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@id/textView204"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="0.0dip"
+                                        android:layout_weight="1.0"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:gravity="bottom"
+                                        android:text="Vapor density"
+                                        android:textColor="#ff444444"
+                                        android:textSize="10.0sp" />
+
+                                    <TextView
+                                        android:id="@id/tv52"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15.0dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.0"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@id/textView254"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/poppins_semibold"
+                                            android:text="Total NH3 in lbs"
+                                            android:textColor="#ff444444"
+                                            android:textSize="10.0sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@id/tv53"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="40.0dip"
+                                        android:layout_marginTop="5.0dip"
+                                        android:layout_weight="1.0"
+                                        android:background="@drawable/edittext_bg2"
+                                        android:fontFamily="@font/poppins_regular"
+                                        android:gravity="center_vertical"
+                                        android:paddingStart="13.0dip"
+                                        android:paddingEnd="13.0dip"
+                                        android:text=""
+                                        android:textColor="#ff444444"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="45.0dip"
+                                android:layout_marginTop="27.0dip"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@id/clear5"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginEnd="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:backgroundTint="#ff90cff2"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Clear"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip" />
+
+                                <Button
+                                    android:id="@id/go_home5"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginStart="5.0dip"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:insetTop="0.0dip"
+                                    android:insetBottom="0.0dip"
+                                    android:text="Go to Home"
+                                    android:textAllCaps="false"
+                                    android:textSize="16.0sp"
+                                    app:cornerRadius="5.0dip"
+                                    android:backgroundTint="#ff2d2f93"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
