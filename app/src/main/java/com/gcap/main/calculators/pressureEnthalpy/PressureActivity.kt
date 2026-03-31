@@ -15,11 +15,13 @@ import com.gcap.R
 import com.gcap.core.BASE_URL
 import com.gcap.core.GlobalStorage
 import com.gcap.core.GlobalStorage.PSIF_rows
+import com.gcap.core.GlobalStorage.PSIG_rows
 import com.gcap.core.GlobalStorage.wb
 import com.gcap.core.normalizeCellRef
 import com.gcap.core.openUrlInBrowser
 import com.gcap.core.vlookup
 import com.gcap.excel.ExcelDataModel.PSIF_vlookup
+import com.gcap.excel.ExcelDataModel.PSIG_vlookup
 import com.gcap.excel.ExcelDataModel.formatValue
 import com.gcap.excel.ExcelDataModel.loadPressureExcel
 import kotlinx.coroutines.Dispatchers
@@ -131,12 +133,12 @@ class PressureActivity : AppCompatActivity() {
             showLoading(true)
             val results = withContext(Dispatchers.IO) {
 // Column_1
-                val A_1 = formatValue(input_first) ?: ""
-                val B_1 = formatValue(input_second) ?: ""
-                val C_1 = formatValue(input_second) ?: ""
-                val E_1 = formatValue(input_first) ?: ""
-                val F_1 = formatValue(input_second) ?: ""
-                val G_1 = formatValue(input_second) ?: ""
+                val A_1 = formatValue(input_second) ?: ""
+                val B_1 = formatValue(input_first) ?: ""
+                val C_1 = formatValue(input_first) ?: ""
+                val E_1 = formatValue(input_second) ?: ""
+                val F_1 = formatValue(input_first) ?: ""
+                val G_1 = formatValue(input_first) ?: ""
 
                 val G_3 = formatValue(input_third) ?: ""
 
@@ -147,7 +149,7 @@ class PressureActivity : AppCompatActivity() {
                 val D_2 = A_2
                 val E_2 = formatValue(PSIF_vlookup(E_1, PSIF_rows, 3) ?: "") ?: ""
                 val F_2 = formatValue(PSIF_vlookup(F_1, PSIF_rows, 3) ?: "") ?: ""
-                val G_2 = formatValue(PSIF_vlookup(G_3, PSIF_rows, 2) ?: "") ?: ""
+                val G_2 = formatValue(PSIG_vlookup(G_3, PSIG_rows, 2) ?: "") ?: ""
 
 // Column_3
                 val A_3 = formatValue(PSIF_vlookup(A_1, PSIF_rows, 2) ?: "") ?: ""
