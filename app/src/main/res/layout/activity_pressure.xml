@@ -1330,7 +1330,7 @@
                                     android:fontFamily="@font/poppins_regular"
                                     android:insetTop="0.0dip"
                                     android:insetBottom="0.0dip"
-                                    android:text="Go to Home"
+                                    android:text="Go to"
                                     android:textAllCaps="false"
                                     android:textSize="16.0sp"
                                     app:cornerRadius="5.0dip" />

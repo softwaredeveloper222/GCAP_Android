@@ -42,19 +42,24 @@ class ReleaseActivity : AppCompatActivity() {
         val goHomeButton4 = findViewById<Button>(R.id.go_home4)
         val goHomeButton5 = findViewById<Button>(R.id.go_home5)
         goHomeButton1.setOnClickListener {
-            finish()
+            firstFunc()
+//            finish()
         }
         goHomeButton2.setOnClickListener {
-            finish()
+            secondFunc()
+//            finish()
         }
         goHomeButton3.setOnClickListener {
-            finish()
+            thirdFunc()
+//            finish()
         }
         goHomeButton4.setOnClickListener {
-            finish()
+            forthFunc()
+//            finish()
         }
         goHomeButton5.setOnClickListener {
-            finish()
+            fifthFunc()
+//            finish()
         }
 
         val clearButton1 = findViewById<Button>(R.id.clear1)

@@ -32,9 +32,11 @@ class PsiaActivity : AppCompatActivity() {
             finish()
         }
 
+        val psiaText = findViewById<EditText>(R.id.tvPsia)
         val goHomeButton = findViewById<Button>(R.id.go_home)
         goHomeButton.setOnClickListener {
-            finish()
+            calcValue()
+//            finish()
         }
 
         val clearButton = findViewById<Button>(R.id.clear)
@@ -54,39 +56,48 @@ class PsiaActivity : AppCompatActivity() {
             openUrlInBrowser(this, BASE_URL)
         }
 
-        val psiaText = findViewById<EditText>(R.id.tvPsia)
+
         psiaText.setOnKeyListener { v, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                val psiaValue = psiaText.text.toString()
-
-                if (psiaValue.toDouble() >= 4.69 && psiaValue.toDouble() <= 307.08){
-                    val psig = PSIA_vlookup(psiaValue, PSIA_rows, 2)
-                    val cvLiquid = PSIA_vlookup(psiaValue, PSIA_rows, 3)
-                    val cvVapor = PSIA_vlookup(psiaValue, PSIA_rows, 4)
-                    val densityLiquid = PSIA_vlookup(psiaValue, PSIA_rows, 5)
-                    val densityVapor = PSIA_vlookup(psiaValue, PSIA_rows, 6)
-                    val temperature = PSIA_vlookup(psiaValue, PSIA_rows, 7)
-
-                    findViewById<TextView>(R.id.psig).setText(psig)
-                    findViewById<TextView>(R.id.tvCvLiquid).setText(cvLiquid)
-                    findViewById<TextView>(R.id.tvCvVaper).setText(cvVapor)
-                    findViewById<TextView>(R.id.tvDenLiquid).setText(densityLiquid)
-                    findViewById<TextView>(R.id.tvDenVaper).setText(densityVapor)
-                    findViewById<TextView>(R.id.tvF).setText(temperature)
-
-                }
-                else{
-                    Snackbar.make(
-                        findViewById(R.id.main),
-                        "PSIA value must be in 4.69 to 307.08",
-                        Snackbar.LENGTH_SHORT
-                    ).show()
-                }
+                calcValue()
 
                 true
             } else {
                 false
             }
+        }
+    }
+
+    fun calcValue(){
+        val psiaText = findViewById<EditText>(R.id.tvPsia)
+        val psiaValue = psiaText.text.toString()
+
+        if (psiaValue.isEmpty()){
+            return
+        }
+
+        if (psiaValue.toDouble() >= 4.69 && psiaValue.toDouble() <= 307.08){
+            val psig = PSIA_vlookup(psiaValue, PSIA_rows, 2)
+            val cvLiquid = PSIA_vlookup(psiaValue, PSIA_rows, 3)
+            val cvVapor = PSIA_vlookup(psiaValue, PSIA_rows, 4)
+            val densityLiquid = PSIA_vlookup(psiaValue, PSIA_rows, 5)
+            val densityVapor = PSIA_vlookup(psiaValue, PSIA_rows, 6)
+            val temperature = PSIA_vlookup(psiaValue, PSIA_rows, 7)
+
+            findViewById<TextView>(R.id.psig).setText(psig)
+            findViewById<TextView>(R.id.tvCvLiquid).setText(cvLiquid)
+            findViewById<TextView>(R.id.tvCvVaper).setText(cvVapor)
+            findViewById<TextView>(R.id.tvDenLiquid).setText(densityLiquid)
+            findViewById<TextView>(R.id.tvDenVaper).setText(densityVapor)
+            findViewById<TextView>(R.id.tvF).setText(temperature)
+
+        }
+        else{
+            Snackbar.make(
+                findViewById(R.id.main),
+                "PSIA value must be in 4.69 to 307.08",
+                Snackbar.LENGTH_SHORT
+            ).show()
         }
     }
 }

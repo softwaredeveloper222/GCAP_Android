@@ -62,7 +62,8 @@ class PressureActivity : AppCompatActivity() {
 
         val goHomeButton = findViewById<Button>(R.id.go_home)
         goHomeButton.setOnClickListener {
-            finish()
+            calcValue()
+//            finish()
         }
 
         val clearButton = findViewById<Button>(R.id.clear)
