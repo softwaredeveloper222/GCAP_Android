@@ -346,6 +346,45 @@
                         app:srcCompat="@drawable/right_arrow" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+            <!--            cvSafetyDays-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvSafetyDays"
+                android:layout_width="fill_parent"
+                android:layout_height="100.0dip"
+                android:layout_marginStart="20.0dip"
+                android:layout_marginEnd="20.0dip"
+                android:layout_marginBottom="15.0dip"
+                app:cardCornerRadius="10.0dip">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="70.0dip"
+                        android:layout_height="70.0dip"
+                        android:layout_marginStart="10.0dip"
+                        app:srcCompat="@drawable/ic_safety_days" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="17.0dip"
+                        android:layout_weight="1.0"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/safety_days"
+                        android:textColor="#ff444444"
+                        android:textSize="16.0sp" />
+
+                    <ImageView
+                        android:layout_width="9.0dip"
+                        android:layout_height="16.0dip"
+                        android:layout_marginEnd="13.0dip"
+                        app:srcCompat="@drawable/right_arrow" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <!--            cvContact-->
             <androidx.cardview.widget.CardView
                 android:id="@id/cvContact"

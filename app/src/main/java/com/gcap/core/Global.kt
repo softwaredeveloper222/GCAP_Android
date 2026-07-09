@@ -16,3 +16,4 @@ fun openUrlInBrowser(context: Context, url: String) {
 }
 
 val BASE_URL = "https://gcapcoolworks.com/"
+val SAFETY_DAYS_URL = "https://safety-days.vercel.app/safety-days"

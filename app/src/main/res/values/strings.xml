@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">GCAP Cool Works</string>
+    <string name="safety_days">Safety Days</string>
+    <string name="back">Back</string>
     <string name="formula" formatted="false">"• 1% = 10,000 PPM
 • Federal PEL for NH3 is 50 PPM
 • Federal STEL for NH3 is 35 PPM

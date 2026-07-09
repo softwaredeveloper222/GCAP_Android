@@ -16,6 +16,7 @@ import com.gcap.main.contactUs.ContactActivity
 import com.gcap.main.formulas.FormulaActivity
 import com.gcap.main.industryContacts.IndustryActivity
 import com.gcap.main.magneticTool.MagneticActivity
+import com.gcap.main.safetyDays.SafetyDaysActivity
 import com.gcap.main.valvePositions.ValvesActivity
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         val cvAnimation = findViewById<CardView>(R.id.cvAnimation)
         val cvMagnetic = findViewById<CardView>(R.id.cvMagnetic)
         val cvIndustry = findViewById<CardView>(R.id.cvIndustry)
+        val cvSafetyDays = findViewById<CardView>(R.id.cvSafetyDays)
         val cvContact = findViewById<CardView>(R.id.cvContact)
 
         cvCal.setOnClickListener {
@@ -69,6 +71,11 @@ class MainActivity : AppCompatActivity() {
 
         cvIndustry.setOnClickListener {
             val intent = Intent(this, IndustryActivity::class.java)
+            startActivity(intent)
+        }
+
+        cvSafetyDays.setOnClickListener {
+            val intent = Intent(this, SafetyDaysActivity::class.java)
             startActivity(intent)
         }
 
