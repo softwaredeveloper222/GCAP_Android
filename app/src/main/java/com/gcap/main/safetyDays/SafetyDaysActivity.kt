@@ -3,16 +3,20 @@ package com.gcap.main.safetyDays
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Message
 import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.gcap.R
+import com.gcap.core.attachPopupWindowHandler
+import com.gcap.core.externalLinkWebViewClient
+import com.gcap.core.isPdfUrl
+import com.gcap.core.openPdfOrExternal
 import com.gcap.core.SAFETY_DAYS_URL
 
 class SafetyDaysActivity : AppCompatActivity() {
@@ -43,15 +47,33 @@ class SafetyDaysActivity : AppCompatActivity() {
             domStorageEnabled = true
             loadWithOverviewMode = true
             useWideViewPort = true
+            javaScriptCanOpenWindowsAutomatically = true
+            setSupportMultipleWindows(true)
         }
 
-        webView.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-                progressBar.visibility = View.GONE
+        val handleUrl: (String) -> Boolean = { url ->
+            if (isPdfUrl(url)) {
+                openPdfOrExternal(this, webView, url)
+                true
+            } else {
+                false
             }
         }
 
+        webView.webViewClient = externalLinkWebViewClient(webView) {
+            progressBar.visibility = View.GONE
+        }
+
         webView.webChromeClient = object : WebChromeClient() {
+            override fun onCreateWindow(
+                view: WebView?,
+                isDialog: Boolean,
+                isUserGesture: Boolean,
+                resultMsg: Message?,
+            ): Boolean {
+                return attachPopupWindowHandler(webView, handleUrl, resultMsg)
+            }
+
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 if (newProgress < 100) {
                     progressBar.visibility = View.VISIBLE
