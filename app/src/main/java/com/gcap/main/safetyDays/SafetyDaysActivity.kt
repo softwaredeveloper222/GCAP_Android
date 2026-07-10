@@ -39,7 +39,7 @@ class SafetyDaysActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
 
         findViewById<ImageView>(R.id.back).setOnClickListener {
-            finish()
+            navigateBack()
         }
 
         webView.settings.apply {
@@ -88,13 +88,17 @@ class SafetyDaysActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (webView.canGoBack()) {
-                    webView.goBack()
-                } else {
-                    finish()
-                }
+                navigateBack()
             }
         })
+    }
+
+    private fun navigateBack() {
+        if (webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            finish()
+        }
     }
 
     override fun onDestroy() {
