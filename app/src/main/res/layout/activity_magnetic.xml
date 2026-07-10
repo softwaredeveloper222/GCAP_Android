@@ -262,7 +262,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="DC"
+                        android:text="DC: 38 µT"
                         android:textColor="#ff444444"
                         android:textSize="17.0sp" />
 
