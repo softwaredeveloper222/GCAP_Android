@@ -3,7 +3,6 @@ package com.gcap.main.calculators.RealeaseCalculator
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.KeyEvent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -16,7 +15,10 @@ import com.gcap.core.GlobalStorage.PSIF_rows
 import com.gcap.core.GlobalStorage.PSIG_rows
 import com.gcap.core.analytics.CalculatorIds
 import com.gcap.core.analytics.CalculatorSessionTracker
+import com.gcap.core.debounced
+import com.gcap.core.disableKeyboardFocus
 import com.gcap.core.openUrlInBrowser
+import com.gcap.core.setOnEnterOrDone
 import com.gcap.excel.ExcelDataModel.PSIF_vlookup
 import com.gcap.excel.ExcelDataModel.PSIG_vlookup
 import com.gcap.excel.ExcelDataModel.formatValue
@@ -36,35 +38,32 @@ class ReleaseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_release)
 
         val backButton = findViewById<ImageView>(R.id.back)
+        backButton.disableKeyboardFocus()
         backButton.setOnClickListener {
             finish()
         }
+
+        val firstCalculate = debounced { firstFunc() }
+        val secondCalculate = debounced { secondFunc() }
+        val thirdCalculate = debounced { thirdFunc() }
+        val fourthCalculate = debounced { forthFunc() }
+        val fifthCalculate = debounced { fifthFunc() }
 
         val goHomeButton1 = findViewById<Button>(R.id.go_home1)
         val goHomeButton2 = findViewById<Button>(R.id.go_home2)
         val goHomeButton3 = findViewById<Button>(R.id.go_home3)
         val goHomeButton4 = findViewById<Button>(R.id.go_home4)
         val goHomeButton5 = findViewById<Button>(R.id.go_home5)
-        goHomeButton1.setOnClickListener {
-            firstFunc()
-//            finish()
-        }
-        goHomeButton2.setOnClickListener {
-            secondFunc()
-//            finish()
-        }
-        goHomeButton3.setOnClickListener {
-            thirdFunc()
-//            finish()
-        }
-        goHomeButton4.setOnClickListener {
-            forthFunc()
-//            finish()
-        }
-        goHomeButton5.setOnClickListener {
-            fifthFunc()
-//            finish()
-        }
+        goHomeButton1.disableKeyboardFocus()
+        goHomeButton2.disableKeyboardFocus()
+        goHomeButton3.disableKeyboardFocus()
+        goHomeButton4.disableKeyboardFocus()
+        goHomeButton5.disableKeyboardFocus()
+        goHomeButton1.setOnClickListener { firstCalculate() }
+        goHomeButton2.setOnClickListener { secondCalculate() }
+        goHomeButton3.setOnClickListener { thirdCalculate() }
+        goHomeButton4.setOnClickListener { fourthCalculate() }
+        goHomeButton5.setOnClickListener { fifthCalculate() }
 
         val clearButton1 = findViewById<Button>(R.id.clear1)
         val clearButton2 = findViewById<Button>(R.id.clear2)
@@ -120,125 +119,25 @@ class ReleaseActivity : AppCompatActivity() {
         val et12 = findViewById<EditText>(R.id.et12)
         val et13 = findViewById<EditText>(R.id.et13)
 
-        et11.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                firstFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et12.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                firstFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et13.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                firstFunc()
-                true
-            } else {
-                false
-            }
-        }
+        listOf(et11, et12, et13).forEach { it.setOnEnterOrDone(firstCalculate) }
 
         val et21 = findViewById<EditText>(R.id.et21)
         val et22 = findViewById<EditText>(R.id.et22)
         val et23 = findViewById<EditText>(R.id.et23)
 
-        et21.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                secondFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et22.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                secondFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et23.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                secondFunc()
-                true
-            } else {
-                false
-            }
-        }
+        listOf(et21, et22, et23).forEach { it.setOnEnterOrDone(secondCalculate) }
 
         val et31 = findViewById<EditText>(R.id.et31)
         val et32 = findViewById<EditText>(R.id.et32)
         val et33 = findViewById<EditText>(R.id.et33)
 
-        et31.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                thirdFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et32.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                thirdFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et33.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                thirdFunc()
-                true
-            } else {
-                false
-            }
-        }
+        listOf(et31, et32, et33).forEach { it.setOnEnterOrDone(thirdCalculate) }
 
         val et41 = findViewById<EditText>(R.id.et41)
         val et42 = findViewById<EditText>(R.id.et42)
         val et43 = findViewById<EditText>(R.id.et43)
 
-        et41.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                forthFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et42.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                forthFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et43.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                forthFunc()
-                true
-            } else {
-                false
-            }
-        }
+        listOf(et41, et42, et43).forEach { it.setOnEnterOrDone(fourthCalculate) }
 
         val et51 = findViewById<EditText>(R.id.et51)
         val et52 = findViewById<EditText>(R.id.et52)
@@ -246,49 +145,7 @@ class ReleaseActivity : AppCompatActivity() {
         val et54 = findViewById<EditText>(R.id.et54)
         val et55 = findViewById<EditText>(R.id.et55)
 
-        et51.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                fifthFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et52.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                fifthFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et53.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                fifthFunc()
-                true
-            } else {
-                false
-            }
-        }
-        et54.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                fifthFunc()
-                true
-            } else {
-                false
-            }
-        }
-
-        et55.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                fifthFunc()
-                true
-            } else {
-                false
-            }
-        }
+        listOf(et51, et52, et53, et54, et55).forEach { it.setOnEnterOrDone(fifthCalculate) }
 
 
     }

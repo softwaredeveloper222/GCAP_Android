@@ -2,7 +2,6 @@ package com.gcap.main.calculators.PSIA
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.KeyEvent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -14,7 +13,10 @@ import com.gcap.core.BASE_URL
 import com.gcap.core.GlobalStorage.PSIA_rows
 import com.gcap.core.analytics.CalculatorIds
 import com.gcap.core.analytics.CalculatorSessionTracker
+import com.gcap.core.debounced
+import com.gcap.core.disableKeyboardFocus
 import com.gcap.core.openUrlInBrowser
+import com.gcap.core.setOnEnterOrDone
 import com.gcap.excel.ExcelDataModel.PSIA_vlookup
 import com.google.android.material.snackbar.Snackbar
 
@@ -32,16 +34,16 @@ class PsiaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_psia)
 
         val backButton = findViewById<ImageView>(R.id.back)
+        backButton.disableKeyboardFocus()
         backButton.setOnClickListener {
             finish()
         }
 
         val psiaText = findViewById<EditText>(R.id.tvPsia)
+        val calculate = debounced { calcValue() }
         val goHomeButton = findViewById<Button>(R.id.go_home)
-        goHomeButton.setOnClickListener {
-            calcValue()
-//            finish()
-        }
+        goHomeButton.disableKeyboardFocus()
+        goHomeButton.setOnClickListener { calculate() }
 
         val clearButton = findViewById<Button>(R.id.clear)
         clearButton.setOnClickListener {
@@ -61,15 +63,7 @@ class PsiaActivity : AppCompatActivity() {
         }
 
 
-        psiaText.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                calcValue()
-
-                true
-            } else {
-                false
-            }
-        }
+        psiaText.setOnEnterOrDone(calculate)
     }
 
     override fun onStart() {

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.KeyEvent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -17,7 +16,10 @@ import com.gcap.core.BASE_URL
 import com.gcap.core.GlobalStorage.Superheat_rows
 import com.gcap.core.analytics.CalculatorIds
 import com.gcap.core.analytics.CalculatorSessionTracker
+import com.gcap.core.debounced
+import com.gcap.core.disableKeyboardFocus
 import com.gcap.core.openUrlInBrowser
+import com.gcap.core.setOnEnterOrDone
 import com.gcap.excel.ExcelDataModel.Superheat_vlookup
 
 class SuperActivity : AppCompatActivity() {
@@ -35,15 +37,15 @@ class SuperActivity : AppCompatActivity() {
 
         val backButton = findViewById<ImageView>(R.id.back)
 
+        backButton.disableKeyboardFocus()
         backButton.setOnClickListener {
             finish()
         }
 
+        val calculate = debounced { calcValue() }
         val goHomeButton = findViewById<Button>(R.id.go_home)
-        goHomeButton.setOnClickListener {
-            calcValue()
-//            finish()
-        }
+        goHomeButton.disableKeyboardFocus()
+        goHomeButton.setOnClickListener { calculate() }
         val clearButton = findViewById<Button>(R.id.clear)
         clearButton.setOnClickListener {
             findViewById<EditText>(R.id.etPsig).setText("")
@@ -65,23 +67,8 @@ class SuperActivity : AppCompatActivity() {
         val etPsig = findViewById<EditText>(R.id.etPsig)
         val etF = findViewById<EditText>(R.id.etF)
 
-        etPsig.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                calcValue()
-                true
-            } else {
-                false
-            }
-        }
-
-        etF.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                calcValue()
-                true
-            } else {
-                false
-            }
-        }
+        etPsig.setOnEnterOrDone(calculate)
+        etF.setOnEnterOrDone(calculate)
     }
 
     override fun onStart() {

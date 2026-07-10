@@ -3,7 +3,6 @@ package com.gcap.main.calculators.fahrenheit
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.KeyEvent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -15,7 +14,10 @@ import com.gcap.core.BASE_URL
 import com.gcap.core.GlobalStorage.PSIF_rows
 import com.gcap.core.analytics.CalculatorIds
 import com.gcap.core.analytics.CalculatorSessionTracker
+import com.gcap.core.debounced
+import com.gcap.core.disableKeyboardFocus
 import com.gcap.core.openUrlInBrowser
+import com.gcap.core.setOnEnterOrDone
 import com.gcap.excel.ExcelDataModel.PSIF_vlookup
 import com.google.android.material.snackbar.Snackbar
 import kotlin.toString
@@ -34,15 +36,15 @@ class FahrenheitActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fahrenheit)
 
         val backButton = findViewById<ImageView>(R.id.back)
+        backButton.disableKeyboardFocus()
         backButton.setOnClickListener {
             finish()
         }
 
+        val calculate = debounced { calcValue() }
         val goHomeButton = findViewById<Button>(R.id.go_home)
-        goHomeButton.setOnClickListener {
-            calcValue()
-//            finish()
-        }
+        goHomeButton.disableKeyboardFocus()
+        goHomeButton.setOnClickListener { calculate() }
 
         val clearButton = findViewById<Button>(R.id.clear)
         clearButton.setOnClickListener {
@@ -61,14 +63,7 @@ class FahrenheitActivity : AppCompatActivity() {
         }
 
         val fText = findViewById<EditText>(R.id.tvF)
-        fText.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                calcValue()
-                true
-            } else {
-                false
-            }
-        }
+        fText.setOnEnterOrDone(calculate)
     }
 
     override fun onStart() {

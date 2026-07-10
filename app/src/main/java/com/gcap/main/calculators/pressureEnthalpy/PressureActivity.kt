@@ -2,7 +2,6 @@ package com.gcap.main.calculators.pressureEnthalpy
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -20,7 +19,10 @@ import com.gcap.core.GlobalStorage.wb
 import com.gcap.core.analytics.CalculatorIds
 import com.gcap.core.analytics.CalculatorSessionTracker
 import com.gcap.core.normalizeCellRef
+import com.gcap.core.debounced
+import com.gcap.core.disableKeyboardFocus
 import com.gcap.core.openUrlInBrowser
+import com.gcap.core.setOnEnterOrDone
 import com.gcap.core.vlookup
 import com.gcap.excel.ExcelDataModel.PSIF_vlookup
 import com.gcap.excel.ExcelDataModel.PSIG_vlookup
@@ -59,15 +61,15 @@ class PressureActivity : AppCompatActivity() {
         }
 
         val backButton = findViewById<ImageView>(R.id.back)
+        backButton.disableKeyboardFocus()
         backButton.setOnClickListener {
             finish()
         }
 
+        val calculate = debounced { calcValue() }
         val goHomeButton = findViewById<Button>(R.id.go_home)
-        goHomeButton.setOnClickListener {
-            calcValue()
-//            finish()
-        }
+        goHomeButton.disableKeyboardFocus()
+        goHomeButton.setOnClickListener { calculate() }
 
         val clearButton = findViewById<Button>(R.id.clear)
         clearButton.setOnClickListener {
@@ -85,40 +87,10 @@ class PressureActivity : AppCompatActivity() {
         val psig = findViewById<EditText>(R.id.psig)
         val compressor = findViewById<EditText>(R.id.compressor)
 
-        evaporator.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                calcValue()
-                true
-            } else {
-                false
-            }
-        }
-        condensing.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                calcValue()
-                true
-            } else {
-                false
-            }
-        }
-
-        psig.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                calcValue()
-                true
-            } else {
-                false
-            }
-        }
-
-        compressor.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                calcValue()
-                true
-            } else {
-                false
-            }
-        }
+        evaporator.setOnEnterOrDone(calculate)
+        condensing.setOnEnterOrDone(calculate)
+        psig.setOnEnterOrDone(calculate)
+        compressor.setOnEnterOrDone(calculate)
 
     }
 
