@@ -12,11 +12,15 @@ import androidx.core.view.WindowCompat
 import com.gcap.R
 import com.gcap.core.BASE_URL
 import com.gcap.core.GlobalStorage.PSIA_rows
+import com.gcap.core.analytics.CalculatorIds
+import com.gcap.core.analytics.CalculatorSessionTracker
 import com.gcap.core.openUrlInBrowser
 import com.gcap.excel.ExcelDataModel.PSIA_vlookup
 import com.google.android.material.snackbar.Snackbar
 
 class PsiaActivity : AppCompatActivity() {
+    private val analytics = CalculatorSessionTracker(this, CalculatorIds.PSIA)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -68,6 +72,16 @@ class PsiaActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        analytics.onStart()
+    }
+
+    override fun onStop() {
+        analytics.onStop()
+        super.onStop()
+    }
+
     fun calcValue(){
         val psiaText = findViewById<EditText>(R.id.tvPsia)
         val psiaValue = psiaText.text.toString()
@@ -90,9 +104,11 @@ class PsiaActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.tvDenLiquid).setText(densityLiquid)
             findViewById<TextView>(R.id.tvDenVaper).setText(densityVapor)
             findViewById<TextView>(R.id.tvF).setText(temperature)
+            analytics.trackCalculation(true)
 
         }
         else{
+            analytics.trackCalculation(false)
             Snackbar.make(
                 findViewById(R.id.main),
                 "PSIA value must be in 4.69 to 307.08",

@@ -31,6 +31,7 @@ import kotlinx.coroutines.launch
 
 class CalculatorsActivity : AppCompatActivity() {
     private lateinit var loadingOverlay: View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

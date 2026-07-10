@@ -16,6 +16,15 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Emulator: 10.0.2.2 maps to the host PC. localhost only works inside the emulator itself.
+        buildConfigField("String", "ANALYTICS_BASE_URL", "\"http://10.0.2.2:3000/\"")
+        buildConfigField("String", "ANALYTICS_API_KEY", "\"dev-local-key-change-in-production\"")
+        buildConfigField("boolean", "ANALYTICS_ENABLED", "true")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     //to release

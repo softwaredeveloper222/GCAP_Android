@@ -15,10 +15,14 @@ import androidx.core.view.WindowCompat
 import com.gcap.R
 import com.gcap.core.BASE_URL
 import com.gcap.core.GlobalStorage.Superheat_rows
+import com.gcap.core.analytics.CalculatorIds
+import com.gcap.core.analytics.CalculatorSessionTracker
 import com.gcap.core.openUrlInBrowser
 import com.gcap.excel.ExcelDataModel.Superheat_vlookup
 
 class SuperActivity : AppCompatActivity() {
+    private val analytics = CalculatorSessionTracker(this, CalculatorIds.SUPERHEAT_SUBCOOLING)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -80,6 +84,16 @@ class SuperActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        analytics.onStart()
+    }
+
+    override fun onStop() {
+        analytics.onStop()
+        super.onStop()
+    }
+
     @SuppressLint("ResourceAsColor")
     fun calcValue(){
         val etPsig = findViewById<EditText>(R.id.etPsig)
@@ -117,5 +131,6 @@ class SuperActivity : AppCompatActivity() {
 
         tvCondition.setTextColor(ContextCompat.getColor(this, R.color.white))
         tvCondition.setText(Condition)
+        analytics.trackCalculation(true)
     }
 }

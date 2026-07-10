@@ -17,6 +17,8 @@ import com.gcap.core.GlobalStorage
 import com.gcap.core.GlobalStorage.PSIF_rows
 import com.gcap.core.GlobalStorage.PSIG_rows
 import com.gcap.core.GlobalStorage.wb
+import com.gcap.core.analytics.CalculatorIds
+import com.gcap.core.analytics.CalculatorSessionTracker
 import com.gcap.core.normalizeCellRef
 import com.gcap.core.openUrlInBrowser
 import com.gcap.core.vlookup
@@ -30,6 +32,7 @@ import kotlinx.coroutines.withContext
 
 class PressureActivity : AppCompatActivity() {
     private lateinit var loadingOverlay: View
+    private val analytics = CalculatorSessionTracker(this, CalculatorIds.PRESSURE_ENTHALPY)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,6 +120,16 @@ class PressureActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        analytics.onStart()
+    }
+
+    override fun onStop() {
+        analytics.onStop()
+        super.onStop()
     }
 
     fun calcValue() {
@@ -265,6 +278,7 @@ class PressureActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.info9).text = Row_9
             }
             showLoading(false)
+            analytics.trackCalculation(true)
         }
     }
 

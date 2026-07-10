@@ -14,6 +14,8 @@ import com.gcap.R
 import com.gcap.core.BASE_URL
 import com.gcap.core.GlobalStorage.PSIF_rows
 import com.gcap.core.GlobalStorage.PSIG_rows
+import com.gcap.core.analytics.CalculatorIds
+import com.gcap.core.analytics.CalculatorSessionTracker
 import com.gcap.core.openUrlInBrowser
 import com.gcap.excel.ExcelDataModel.PSIF_vlookup
 import com.gcap.excel.ExcelDataModel.PSIG_vlookup
@@ -21,6 +23,8 @@ import com.gcap.excel.ExcelDataModel.formatValue
 import kotlin.math.sqrt
 
 class ReleaseActivity : AppCompatActivity() {
+    private val analytics = CalculatorSessionTracker(this, CalculatorIds.RELEASE)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -289,6 +293,16 @@ class ReleaseActivity : AppCompatActivity() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        analytics.onStart()
+    }
+
+    override fun onStop() {
+        analytics.onStop()
+        super.onStop()
+    }
+
     fun firstFunc(){
         val et11 = findViewById<EditText>(R.id.et11)
         val et12 = findViewById<EditText>(R.id.et12)
@@ -311,6 +325,7 @@ class ReleaseActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tv11).setText(formatValue(LiquidFlowRate.toString()))
         findViewById<TextView>(R.id.tv12).setText(formatValue(TotalLiquidReleased.toString()))
+        analytics.trackCalculation(true)
     }
 
     fun secondFunc(){
@@ -335,6 +350,7 @@ class ReleaseActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tv21).setText(formatValue(LiquidFlowRate.toString()))
         findViewById<TextView>(R.id.tv22).setText(formatValue(TotalLiquidReleased.toString()))
+        analytics.trackCalculation(true)
     }
     fun thirdFunc(){
         val et31 = findViewById<EditText>(R.id.et31)
@@ -362,6 +378,7 @@ class ReleaseActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tv31).setText(formatValue(LiquidFlowRate.toString()))
         findViewById<TextView>(R.id.tv32).setText(formatValue(TotalLiquidReleased.toString()))
+        analytics.trackCalculation(true)
     }
 
     fun forthFunc(){
@@ -390,6 +407,7 @@ class ReleaseActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tv41).setText(formatValue(LiquidFlowRate.toString()))
         findViewById<TextView>(R.id.tv42).setText(formatValue(TotalLiquidReleased.toString()))
+        analytics.trackCalculation(true)
     }
 
     fun  fifthFunc(){
@@ -421,5 +439,6 @@ class ReleaseActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv51).setText(formatValue(result.toString()))
         findViewById<TextView>(R.id.tv52).setText(formatValue(temperature.toString()))
         findViewById<TextView>(R.id.tv53).setText(formatValue(result1.toString()))
+        analytics.trackCalculation(true)
     }
 }
