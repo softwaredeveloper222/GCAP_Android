@@ -17,9 +17,13 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // Emulator: 10.0.2.2 maps to the host PC. localhost only works inside the emulator itself.
-        buildConfigField("String", "ANALYTICS_BASE_URL", "\"http://10.0.2.2:3000/\"")
-        buildConfigField("String", "ANALYTICS_API_KEY", "\"dev-local-key-change-in-production\"")
+        // Production analytics API (release APK + physical devices)
+        buildConfigField(
+            "String",
+            "ANALYTICS_BASE_URL",
+            "\"https://calculator-analytics.vercel.app/\"",
+        )
+        buildConfigField("String", "ANALYTICS_API_KEY", "\"gcap-analytics-8f3k2m9x7p1q4w6z\"")
         buildConfigField("boolean", "ANALYTICS_ENABLED", "true")
     }
 
@@ -51,6 +55,10 @@ android {
 
     //to debug
     buildTypes {
+        debug {
+            // Local dev server when testing on emulator
+            buildConfigField("String", "ANALYTICS_BASE_URL", "\"http://10.0.2.2:3000/\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
