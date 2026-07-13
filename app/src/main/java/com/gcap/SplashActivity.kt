@@ -9,6 +9,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.gcap.core.analytics.CalculatorAnalytics
+import com.gcap.core.notifications.SafetyDaysNotificationStore
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -16,6 +17,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         CalculatorAnalytics.init(this)
+        SafetyDaysNotificationStore.refresh(this) { _, _ -> }
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
         window.statusBarColor = Color.TRANSPARENT

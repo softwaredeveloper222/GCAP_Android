@@ -21,7 +21,7 @@ android {
         buildConfigField(
             "String",
             "ANALYTICS_BASE_URL",
-            "\"https://calculator-analytics.vercel.app/\"",
+            "\"https://gcap-admin.vercel.app/\"",
         )
         buildConfigField("String", "ANALYTICS_API_KEY", "\"gcap-analytics-8f3k2m9x7p1q4w6z\"")
         buildConfigField("boolean", "ANALYTICS_ENABLED", "true")
@@ -53,11 +53,15 @@ android {
 //        }
 //    }
 
-    //to debug
     buildTypes {
         debug {
-            // Local dev server when testing on emulator
-            buildConfigField("String", "ANALYTICS_BASE_URL", "\"http://10.0.2.2:3000/\"")
+            // Use production CMS so emulator + physical devices get Safety Days content.
+            // Override locally with http://10.0.2.2:3000/ when testing against next dev.
+            buildConfigField(
+                "String",
+                "ANALYTICS_BASE_URL",
+                "\"https://gcap-admin.vercel.app/\"",
+            )
         }
         release {
             isMinifyEnabled = false
@@ -112,6 +116,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
     implementation("com.github.zcweng:switch-button:0.0.3")
 
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("org.apache.poi:poi:5.2.3")
     implementation("org.apache.poi:poi-ooxml:5.2.3")
 

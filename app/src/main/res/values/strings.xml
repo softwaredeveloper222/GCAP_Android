@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">GCAP Cool Works</string>
     <string name="safety_days">Safety Days</string>
+    <string name="safety_days_register">Click Here to Register</string>
+    <string name="safety_days_hotels">Link to Recommended Hotels</string>
+    <string name="safety_days_date">Date: %1$s</string>
+    <string name="safety_days_updated">Updated · version %1$d</string>
+    <string name="safety_days_cached">Showing saved content · version %1$d</string>
+    <string name="safety_days_load_error">Unable to load Safety Days. Check your connection and try again.</string>
+    <string name="safety_days_new">New</string>
     <string name="back">Back</string>
     <string name="formula" formatted="false">"• 1% = 10,000 PPM
 • Federal PEL for NH3 is 50 PPM

@@ -38,14 +38,20 @@
         app:layout_constraintTop_toBottomOf="@id/constraintLayout"
         app:srcCompat="@drawable/logo" />
 
-    <ScrollView
-        android:layout_width="0.0dip"
-        android:layout_height="0.0dip"
-        android:layout_marginTop="20.0dip"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -378,6 +384,22 @@
                         android:textColor="#ff444444"
                         android:textSize="16.0sp" />
 
+                    <TextView
+                        android:id="@+id/safetyDaysBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:background="#FFE53935"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="2dp"
+                        android:text="@string/safety_days_new"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:visibility="gone" />
+
                     <ImageView
                         android:layout_width="9.0dip"
                         android:layout_height="16.0dip"
@@ -428,6 +450,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,6 +47,9 @@
             android:name=".main.safetyDays.SafetyDaysActivity"
             android:exported="false" />
         <activity
+            android:name=".main.safetyDays.SafetyDaysWebActivity"
+            android:exported="false" />
+        <activity
             android:name=".main.magneticTool.MagneticActivity"
             android:exported="false" />
         <activity
