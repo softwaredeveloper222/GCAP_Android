@@ -20,6 +20,10 @@ import com.squareup.picasso.Picasso
 
 class SafetyDaysActivity : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_CONTENT_ID = "content_id"
+    }
+
     private lateinit var progressBar: ProgressBar
     private lateinit var heroImage: ImageView
     private lateinit var titleText: TextView
@@ -60,15 +64,17 @@ class SafetyDaysActivity : AppCompatActivity() {
 
         findViewById<ImageView>(R.id.back).setOnClickListener { finish() }
 
+        val contentId = intent.getStringExtra(EXTRA_CONTENT_ID)
+
         SafetyDaysNotificationStore.getCached(this)?.let { bind(it) }
 
         progressBar.visibility = View.VISIBLE
-        SafetyDaysNotificationStore.refresh(this) { payload, fromNetwork ->
+        SafetyDaysNotificationStore.refresh(this, contentId) { payload, fromNetwork ->
             runOnUiThread {
                 progressBar.visibility = View.GONE
                 if (payload != null) {
                     bind(payload)
-                    SafetyDaysNotificationStore.markSeen(this, payload.version)
+                    SafetyDaysNotificationStore.markSeen(this, payload.id, payload.version)
                     statusText.text = if (fromNetwork) {
                         getString(R.string.safety_days_updated, payload.version)
                     } else {

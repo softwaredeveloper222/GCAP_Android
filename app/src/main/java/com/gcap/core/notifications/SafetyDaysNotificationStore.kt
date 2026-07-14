@@ -16,6 +16,7 @@ object SafetyDaysNotificationStore {
     private const val PREFS = "safety_days_notifications"
     private const val KEY_CACHE = "cached_payload"
     private const val KEY_SEEN_VERSION = "seen_version"
+    private const val KEY_SEEN_ID = "seen_id"
     private const val TAG = "SafetyDaysNotify"
 
     private val gson = Gson()
@@ -60,26 +61,38 @@ object SafetyDaysNotificationStore {
 
     fun hasUnreadUpdate(context: Context): Boolean {
         val payload = getCached(context) ?: return false
-        val seen = context.applicationContext
+        val prefs = context.applicationContext
             .getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            .getInt(KEY_SEEN_VERSION, 0)
-        return payload.version > seen
+        val seenId = prefs.getString(KEY_SEEN_ID, null)
+        val seenVersion = prefs.getInt(KEY_SEEN_VERSION, 0)
+        // Different content id counts as unread even if version numbers overlap.
+        if (seenId != null && seenId != payload.id) return true
+        return payload.version > seenVersion
     }
 
-    fun markSeen(context: Context, version: Int) {
+    fun markSeen(context: Context, id: String, version: Int) {
         context.applicationContext
             .getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             .edit()
+            .putString(KEY_SEEN_ID, id)
             .putInt(KEY_SEEN_VERSION, version)
             .apply()
     }
 
+    /** @deprecated Prefer markSeen(context, id, version) */
+    fun markSeen(context: Context, version: Int) {
+        val id = getCached(context)?.id ?: return
+        markSeen(context, id, version)
+    }
+
     fun refresh(
         context: Context,
+        contentId: String? = null,
         onResult: (SafetyDaysPublicResponse?, Boolean) -> Unit,
     ) {
         val appContext = context.applicationContext
-        ensureApi().getSafetyDaysNotification().enqueue(object : Callback<SafetyDaysPublicResponse> {
+        val id = contentId?.trim()?.takeIf { it.isNotEmpty() }
+        ensureApi().getSafetyDaysNotification(id).enqueue(object : Callback<SafetyDaysPublicResponse> {
             override fun onResponse(
                 call: Call<SafetyDaysPublicResponse>,
                 response: Response<SafetyDaysPublicResponse>,

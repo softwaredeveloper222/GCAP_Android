@@ -1,20 +1,24 @@
 package com.gcap
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import android.content.Intent
 import android.graphics.Color
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.View
-import android.widget.TextView
-import com.gcap.main.animations.AnimationActivity
-import com.gcap.main.calculators.CalculatorsActivity
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.gcap.core.BASE_URL
 import com.gcap.core.notifications.SafetyDaysNotificationStore
 import com.gcap.core.openUrlInBrowser
+import com.gcap.main.animations.AnimationActivity
+import com.gcap.main.calculators.CalculatorsActivity
 import com.gcap.main.chartsGraphs.ChartsActivity
 import com.gcap.main.contactUs.ContactActivity
 import com.gcap.main.formulas.FormulaActivity
@@ -22,6 +26,8 @@ import com.gcap.main.industryContacts.IndustryActivity
 import com.gcap.main.magneticTool.MagneticActivity
 import com.gcap.main.safetyDays.SafetyDaysActivity
 import com.gcap.main.valvePositions.ValvesActivity
+import com.onesignal.OneSignal
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -87,6 +93,31 @@ class MainActivity : AppCompatActivity() {
 
         refreshSafetyDaysBadge()
         refreshSafetyDays(fromPull = false)
+
+        // Show the push permission alert after splash → home is visible.
+        Handler(Looper.getMainLooper()).postDelayed({
+            requestPushPermissionIfNeeded()
+        }, 600)
+    }
+
+    private fun requestPushPermissionIfNeeded() {
+        val appId = BuildConfig.ONESIGNAL_APP_ID.trim()
+        if (appId.isEmpty() || appId == "YOUR_ONESIGNAL_APP_ID") return
+        if (isFinishing || isDestroyed) return
+
+        lifecycleScope.launch {
+            // Must run with Activity in foreground so the system dialog can appear.
+            val accepted = OneSignal.Notifications.requestPermission(true)
+            Log.i("GcapOneSignal", "Notification permission accepted=$accepted")
+
+            // Ensure push subscription is opted in after permission grant.
+            OneSignal.User.pushSubscription.optIn()
+            val sub = OneSignal.User.pushSubscription
+            Log.i(
+                "GcapOneSignal",
+                "pushSubscription id=${sub.id} token=${sub.token} optedIn=${sub.optedIn}",
+            )
+        }
     }
 
     override fun onResume() {
