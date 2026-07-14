@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.gcap.core.BASE_URL
 import com.gcap.core.notifications.SafetyDaysNotificationStore
 import com.gcap.core.openUrlInBrowser
@@ -32,7 +31,6 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var safetyDaysBadge: TextView
-    private lateinit var swipeRefresh: SwipeRefreshLayout
     private val badgeChangeListener: () -> Unit = { runOnUiThread { refreshSafetyDaysBadge() } }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,10 +42,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         setContentView(R.layout.activity_main)
-
-        swipeRefresh = findViewById(R.id.swipeRefresh)
-        swipeRefresh.setColorSchemeColors(Color.parseColor("#2D2F93"))
-        swipeRefresh.setOnRefreshListener { refreshSafetyDays(fromPull = true) }
 
         val cvCal = findViewById<CardView>(R.id.cvCal)
         val cvValve = findViewById<CardView>(R.id.cvValve)
@@ -94,7 +88,6 @@ class MainActivity : AppCompatActivity() {
 
         SafetyDaysNotificationStore.addChangeListener(badgeChangeListener)
         refreshSafetyDaysBadge()
-        refreshSafetyDays(fromPull = false)
 
         // Show the push permission alert after splash → home is visible.
         Handler(Looper.getMainLooper()).postDelayed({
@@ -105,6 +98,11 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         SafetyDaysNotificationStore.removeChangeListener(badgeChangeListener)
         super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshSafetyDaysBadge()
     }
 
     private fun requestPushPermissionIfNeeded() {
@@ -124,24 +122,6 @@ class MainActivity : AppCompatActivity() {
                 "GcapOneSignal",
                 "pushSubscription id=${sub.id} token=${sub.token} optedIn=${sub.optedIn}",
             )
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        // Fetch latest CMS content (covers pushes while app was backgrounded).
-        refreshSafetyDays(fromPull = false)
-    }
-
-    private fun refreshSafetyDays(fromPull: Boolean) {
-        if (fromPull) {
-            swipeRefresh.isRefreshing = true
-        }
-        SafetyDaysNotificationStore.refresh(this) { _, _ ->
-            runOnUiThread {
-                refreshSafetyDaysBadge()
-                swipeRefresh.isRefreshing = false
-            }
         }
     }
 
