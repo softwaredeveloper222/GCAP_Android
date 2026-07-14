@@ -372,7 +372,8 @@
                         android:layout_width="70.0dip"
                         android:layout_height="70.0dip"
                         android:layout_marginStart="10.0dip"
-                        app:srcCompat="@drawable/ic_safety_days" />
+                        android:padding="12.0dip"
+                        app:srcCompat="@drawable/ic_notification" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -380,7 +381,7 @@
                         android:layout_marginStart="17.0dip"
                         android:layout_weight="1.0"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="@string/safety_days"
+                        android:text="@string/notification"
                         android:textColor="#ff444444"
                         android:textSize="16.0sp" />
 

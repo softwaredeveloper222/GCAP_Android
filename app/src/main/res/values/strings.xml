@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">GCAP Cool Works</string>
     <string name="safety_days">Safety Days</string>
+    <string name="notification">Notification</string>
     <string name="safety_days_register">Click Here to Register</string>
     <string name="safety_days_hotels">Link to Recommended Hotels</string>
     <string name="safety_days_date">Date: %1$s</string>
