@@ -1,25 +1,29 @@
 {
-    "project_info": {
-        "project_number": "402368112352",
-        "project_id": "gcap-fc9fd",
-        "storage_bucket": "gcap-fc9fd.firebasestorage.app"
-    },
-    "client": [{
-        "client_info": {
-            "mobilesdk_app_id": "1:402368112352:android:630b94e6fdc44a86b99285",
-            "android_client_info": {
-                "package_name": "com.gcap"
-            }
-        },
-        "oauth_client": [],
-        "api_key": [{
-            "current_key": "AIzaSyCY63D24VhFif2xOpWl_HKx_REcmTks_2I"
-        }],
-        "services": {
-            "appinvite_service": {
-                "other_platform_oauth_client": []
-            }
+  "project_info": {
+    "project_number": "402368112352",
+    "project_id": "gcap-fc9fd",
+    "storage_bucket": "gcap-fc9fd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402368112352:android:630b94e6fdc44a86b99285",
+        "android_client_info": {
+          "package_name": "com.gcap"
         }
-    }],
-    "configuration_version": "1"
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY63D24VhFif2xOpWl_HKx_REcmTks_2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
 }
