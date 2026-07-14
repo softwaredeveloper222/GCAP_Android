@@ -84,6 +84,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <!-- OneSignal: receive push while backgrounded / killed → mark Notification unread -->
+        <meta-data
+            android:name="com.onesignal.NotificationServiceExtension"
+            android:value="com.gcap.core.notifications.SafetyDaysNotificationServiceExtension" />
     </application>
 
 </manifest>

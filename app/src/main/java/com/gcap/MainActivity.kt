@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var safetyDaysBadge: TextView
     private lateinit var swipeRefresh: SwipeRefreshLayout
+    private val badgeChangeListener: () -> Unit = { runOnUiThread { refreshSafetyDaysBadge() } }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,6 +92,7 @@ class MainActivity : AppCompatActivity() {
             openUrlInBrowser(this, BASE_URL)
         }
 
+        SafetyDaysNotificationStore.addChangeListener(badgeChangeListener)
         refreshSafetyDaysBadge()
         refreshSafetyDays(fromPull = false)
 
@@ -98,6 +100,11 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             requestPushPermissionIfNeeded()
         }, 600)
+    }
+
+    override fun onDestroy() {
+        SafetyDaysNotificationStore.removeChangeListener(badgeChangeListener)
+        super.onDestroy()
     }
 
     private fun requestPushPermissionIfNeeded() {
@@ -122,7 +129,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        refreshSafetyDaysBadge()
+        // Fetch latest CMS content (covers pushes while app was backgrounded).
+        refreshSafetyDays(fromPull = false)
     }
 
     private fun refreshSafetyDays(fromPull: Boolean) {
